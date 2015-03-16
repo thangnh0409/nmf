@@ -146,13 +146,13 @@ public class DBManager {
 					itemDic.put(itemId, itemCount);
 				}
 				preference = Float.parseFloat(obj[2]);
-				System.out.println("userId: "+ userId + " itemId: "+ itemId+ " prefer: "+ preference);
+//				System.out.println("userId: "+ userId + " itemId: "+ itemId+ " prefer: "+ preference);
 				data.add(new DataModel<Integer, Integer, Float>(userId, itemId, preference));
 			}
 			
 			Collections.shuffle(data);
 			int index = 4*data.size()/5;
-			return new NMFDataModel(data.subList(0, index), data.subList(index, data.size()), data, userCount+1, itemCount+1);
+			return new NMFDataModel(data.subList(0, index), data.subList(index, data.size()), data, userCount, itemCount);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
